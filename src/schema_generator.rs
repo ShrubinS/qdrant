@@ -1,7 +1,6 @@
 use api::grpc::models::{CollectionsResponse, VersionInfo};
 use api::rest::{
-    FacetRequest, QueryGroupsRequest, QueryRequest, QueryRequestBatch, QueryResponse, Record,
-    ScoredPoint,
+    FacetRequest, FacetResponse, QueryGroupsRequest, QueryRequest, QueryRequestBatch, QueryResponse, Record, ScoredPoint
 };
 use collection::operations::cluster_ops::ClusterOperations;
 use collection::operations::consistency_params::ReadConsistency;
@@ -89,6 +88,7 @@ struct AllDefinitions {
     bg: QueryResponse,
     bh: QueryGroupsRequest,
     bi: FacetRequest,
+    bj: FacetResponse,
 }
 
 fn save_schema<T: JsonSchema>() {
