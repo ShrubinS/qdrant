@@ -1,6 +1,7 @@
 use api::grpc::models::{CollectionsResponse, VersionInfo};
 use api::rest::{
-    FacetRequest, FacetResponse, QueryGroupsRequest, QueryRequest, QueryRequestBatch, QueryResponse, Record, ScoredPoint
+    FacetRequest, FacetResponse, QueryGroupsRequest, QueryRequest, QueryRequestBatch,
+    QueryResponse, Record, ScoredPoint,
 };
 use collection::operations::cluster_ops::ClusterOperations;
 use collection::operations::consistency_params::ReadConsistency;
