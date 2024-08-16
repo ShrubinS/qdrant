@@ -54,6 +54,7 @@ POINT_ID = 0
 FIELD_NAME = "test_field"
 PEER_ID = 0
 SHARD_KEY = "existing_shard_key"
+FACET_KEY = "a"
 
 _cached_grpc_clients = None
 
@@ -536,6 +537,9 @@ ACTION_ACCESS = {
         True,
         "POST /collections/{collection_name}/points/query/groups",
         "qdrant.Points/QueryGroups",
+    ),
+    "facet": EndpointAccess(
+        True, True, True, "POST /collections/{collection_name}/points/facet", # TODO(facet): enable grpc "qdrant.Points/Facet"
     ),
     ### Service ###
     "root": EndpointAccess(True, True, True, "GET /", "qdrant.Qdrant/HealthCheck"),
@@ -1783,6 +1787,18 @@ def test_query_points_groups():
             "group_by": FIELD_NAME
         },
     )
+
+
+def test_facet():
+    check_access(
+        "facet",
+        path_params={"collection_name": COLL_NAME},
+        rest_request={
+            "key": FACET_KEY,
+        },
+        # TODO(facet): grpc request
+    )
+
 
 def test_root():
     check_access("root")
