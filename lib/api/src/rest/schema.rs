@@ -655,7 +655,7 @@ pub struct QueryGroupsRequest {
 
 #[derive(Debug, Serialize, Deserialize, JsonSchema, Validate)]
 pub struct FacetRequest {
-    #[validate]
+    #[validate(nested)]
     #[serde(flatten)]
     pub facet_request: FacetRequestInternal,
 
