@@ -12765,6 +12765,10 @@
                 "nullable": true
               }
             ]
+          },
+          "exact": {
+            "default": false,
+            "type": "boolean"
           }
         }
       },
